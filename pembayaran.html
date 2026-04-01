@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8 Mart - Pembayaran</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="logo">
+        <h4>8 Mart</h4>
+    </div>
+
+    <nav class="nav-container">
+        <div class="nav">
+            <a href="index.html#home">Home</a>
+            <a href="index.html#produk">Produk</a>
+            <a href="keranjang.html">Keranjang <span class="cart-badge"></span></a>
+            <a href="riwayat.html">Riwayat</a>
+        </div>
+        <a href="keranjang.html" class="btn-secondary">← Kembali ke Keranjang</a>
+    </nav>
+
+    <div class="pembayaran">
+        <h2>Pembayaran Pesanan</h2>
+        <p>Silakan lengkapi data berikut untuk menyelesaikan pembelian Anda:</p>
+        <form id="paymentForm" class="payment-form">
+            <label for="nama">Nama Lengkap:</label>
+            <input type="text" id="nama" name="nama" required>
+
+            <label for="alamat">Alamat Pengiriman:</label>
+            <input type="text" id="alamat" name="alamat" required>
+
+            <label for="metode">Metode Pembayaran:</label>
+            <select id="metode" name="metode" required>
+                <option value="">Pilih Metode</option>
+                <option value="kartu-kredit">Kartu Kredit</option>
+                <option value="transfer-bank">Transfer Bank</option>
+                <option value="cod">Cash on Delivery (Bayar di Tempat)</option>
+            </select>
+
+            <button type="submit">Bayar Sekarang</button>
+        </form>
+        <p style="text-align:center; margin-top:1rem; color:#64748b;">Keranjang akan otomatis tersimpan setelah pembayaran berhasil.</p>
+    </div>
+
+    <script src="JS/script.js"></script>
+</body>
+</html>
