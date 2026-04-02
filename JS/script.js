@@ -176,11 +176,6 @@ function beliLangsung(nama) {
     const info = productData[nama];
     const cart = getCart();
     const item = cart.find(i => i.nama === nama);
-    if (item) {
-        item.qty += 1;
-    } else {
-        cart.push({ nama, harga: info.harga, img: info.img, qty: 1 });
-    }
     saveCart(cart);
     window.location.href = 'pembayaran.html';
 }
