@@ -147,8 +147,11 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         document.querySelectorAll('.product-item').forEach(item => {
             const nama = item.querySelector('h3').textContent.trim().toLowerCase();
-            const btn = item.querySelector('.btn-keranjang');
-            if (btn) btn.onclick = () => tambahKeKeranjang(nama);
+            const btnKeranjang = item.querySelector('.btn-keranjang');
+            if (btnKeranjang) btnKeranjang.onclick = () => tambahKeKeranjang(nama);
+            
+            const btnBeli = item.querySelector('.btn-beli');
+            if (btnBeli) btnBeli.onclick = () => beliLangsung(nama);
         });
     }
 });
@@ -169,7 +172,21 @@ function hapusRiwayat(idx) {
     renderHistory();
 }
 
+function beliLangsung(nama) {
+    const info = productData[nama];
+    const cart = getCart();
+    const item = cart.find(i => i.nama === nama);
+    if (item) {
+        item.qty += 1;
+    } else {
+        cart.push({ nama, harga: info.harga, img: info.img, qty: 1 });
+    }
+    saveCart(cart);
+    window.location.href = 'pembayaran.html';
+}
+
 // Pencarian produk
 document.querySelector('input[name="p"]').addEventListener('input', (e) => {
     cariProduk(e.target.value);
 });
+
